@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эксперт в освещении | 15+ лет опыта</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Базовые стили */
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #f5f7fa;
+            --dark-color: #2c3e50;
+            --text-color: #34495e;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Анимированный фон */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .light-beam {
+            position: absolute;
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(142, 68, 173, 0.1), transparent);
+            animation: beamMove 15s infinite linear;
+        }
+        
+        .light-beam:nth-child(2) {
+            left: 25%;
+            animation-delay: -5s;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+        }
+        
+        .light-beam:nth-child(3) {
+            left: 50%;
+            animation-delay: -10s;
+            background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.1), transparent);
+        }
+        
+        @keyframes beamMove {
+            0% {
+                transform: translateX(-200px) rotate(20deg);
+            }
+            100% {
+                transform: translateX(calc(100vw + 200px)) rotate(20deg);
+            }
+        }
+        
+        /* Шапка сайта */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--dark-color);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Герой-секция */
+        .hero {
+            background: linear-gradient(135deg, rgba(142, 68, 173, 0.8), rgba(52, 152, 219, 0.8)), url('https://images.unsplash.com/photo-1513506003901-6e119a030507?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: -3s;
+            width: 60px;
+            height: 60px;
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 80%;
+            left: 20%;
+            animation-delay: -6s;
+            width: 30px;
+            height: 30px;
+        }
+        
+        .floating-element:nth-child(4) {
+            top: 40%;
+            left: 70%;
+            animation-delay: -9s;
+            width: 50px;
+            height: 50px;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Обо мне */
+        .about {
+            padding: 6rem 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-text {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Услуги */
+        .services {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            color: white;
+        }
+        
+        .service-card:hover::before {
+            height: 100%;
+        }
+        
+        .service-card:hover h3,
+        .service-card:hover p {
+            color: white;
+        }
+        
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-icon {
+            color: white;
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        /* Опыт */
+        .experience {
+            padding: 6rem 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 15px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            animation: slideInLeft 0.8s ease forwards;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            animation: slideInRight 0.8s ease forwards;
+        }
+        
+        .timeline-content {
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+            transition: var(--transition);
+        }
+        
+        .timeline-item:hover::after {
+            transform: scale(1.3);
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: linear-gradient(135deg, rgba(142, 68, 173, 0.8), rgba(52, 152, 219, 0.8)), url('https://images.unsplash.com/photo-1513506003901-6e119a030507?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            
+        }
+        
+        .contact h2 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .contact p {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-align: center;
+            color: white;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            
+        }
+        
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-contact:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        
+        
+        /* Футер */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color), #1a252f);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-color);
+        }
+        
+        /* Анимация появления при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 2rem;
+                transform: none;
+            }
+            
+            .about-image:hover {
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .back-to-top {
+                right: 15px;
+                bottom: 15px;
+            }
+
+             .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-contact {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+                box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg">
+        <div class="light-beam"></div>
+        <div class="light-beam"></div>
+        <div class="light-beam"></div>
+    </div>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-lightbulb logo-icon"></i>
+                    <span>anastieshaprojekt</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">Обо мне</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#experience">Опыт</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Анастасия Алябьева. Эксперт в освещении <br> с 17-летним опытом</h1>
+                <p>Профессиональные решения для коммерческого, жилого и промышленного освещения. Создаю эффективные и эстетичные световые среды.</p>
+                <a href="#services" class="btn">Мои услуги</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Меня зовут Анастасия Алябьева, и я специализируюсь на проектировании и внедрении систем освещения уже более 17 лет.</p>
+                    <p>За эти годы я реализовала более 200 проектов различной сложности: от освещения жилых помещений до сложных промышленных объектов и архитектурной подсветки.</p>
+                    <p>Мой подход сочетает глубокие технические знания с пониманием эстетических аспектов освещения. Я верю, что правильно спроектированное освещение может кардинально преобразить пространство, повысить комфорт и производительность.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">17+</span>
+                            <span class="stat-text">Лет опыта</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-text">Проектов</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-text">Клиентов</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="IMG_4784.jpg" alt="Эксперт в освещении">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Мои услуги</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Консультации по освещению</h3>
+                    <p>Профессиональные рекомендации по выбору осветительных приборов, их размещению и созданию оптимальных световых сценариев для любых помещений.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Коммерческое освещение</h3>
+                    <p>Проектирование систем освещения для офисов, торговых центров, гостиниц и других коммерческих объектов с учетом эргономики и энергоэффективности.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Промышленное освещение</h3>
+                    <p>Разработка систем освещения для производственных помещений, складов и промышленных объектов с учетом специфических требований и норм.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3>Жилое освещение</h3>
+                    <p>Создание комфортных и функциональных систем освещения для квартир, домов и жилых комплексов с акцентом на эстетику и удобство.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-city"></i></div>
+                    <h3>Архитектурная подсветка</h3>
+                    <p>Разработка концепций и проектов наружного освещения зданий, ландшафтов и городских пространств.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Энергоаудит освещения</h3>
+                    <p>Анализ существующих систем освещения, выявление потенциала энергосбережения и разработка рекомендаций по модернизации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Опыт работы -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Мой опыт</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2008-2010</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2010-2013</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2013-2016</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2016-2020</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2021-настоящее время</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <p>Получите бесплатную консультацию по вопросам освещения ваших объектов. Я отвечу на все ваши вопросы.</p>
+            <div class="contact-buttons">
+                <a target="_blank" href="tel:+79932737494" class="btn-contact">
+                    <i class="fas fa-phone"></i> Позвонить мне
+                </a>
+                <a target="_blank" href="anastieshaprojekt2022@gmail.com" class="btn-contact">
+                    <i class="fas fa-envelope"></i> Написать email
+                </a>
+                <a target="_blank" href="#" class="btn-contact">
+                    <i class="fas fa-map-marker-alt"></i> Посетить офис
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-lightbulb"></i> <span>anastieshaprojekt</span>
+                </div>
+                <p>17+ лет опыта в создании идеального освещения</p>
+                <div class="social-links">
+                    <a href="https://vk.com/anastieshaprojekt" class="social-link"><i class="fab fa-vk"></i></a>
+                    <a href="https://t.me/anastieshaprojekt" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>&copy; 2025 anastieshaprojekt. Все права защищены.</p>
+            </div>
+            <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация появления элементов при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(el => observer.observe(el));
+            timelineItems.forEach(el => observer.observe(el));
+            
+            // Плавная прокрутка к якорям
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Кнопка "Наверх"
+            const backToTopBtn = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.visibility = 'visible';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.visibility = 'hidden';
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Динамическое изменение шапки при скролле
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) {
+                    header.style.padding = '0.5rem 0';
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.padding = '1rem 0';
+                    header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
